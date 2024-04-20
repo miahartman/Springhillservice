@@ -29,12 +29,12 @@ function updateCarousel() {
 
 // Add click event listeners to prev and next buttons
 prevButton.addEventListener('click', () => {
-    currentIndex = Math.max(currentIndex - 1, 0);
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : thumbnails.length - 3;
     updateCarousel();
 });
 
 nextButton.addEventListener('click', () => {
-    currentIndex = Math.min(currentIndex + 1, thumbnails.length - 3);
+    currentIndex = currentIndex < thumbnails.length - 3 ? currentIndex + 1 : 0;
     updateCarousel();
 });
 
