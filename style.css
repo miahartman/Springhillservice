@@ -352,6 +352,7 @@ section {
 .container {
   position: relative;
   margin: 0 auto; /* Center the container horizontally */
+  max-width: 500px; /* Set a maximum width for the container */
 }
 
 /* Set size for the slides */
