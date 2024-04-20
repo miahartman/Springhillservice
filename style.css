@@ -348,8 +348,7 @@ section {
   -o-object-fit: cover;
      object-fit: cover;
 }
-
- /* Position the image container (needed to position the left and right arrows) */
+/* Position the image container (needed to position the left and right arrows) */
 .container {
   position: relative;
 }
@@ -357,8 +356,14 @@ section {
 /* Hide the images by default */
 .mySlides {
   display: none;
-  width: 100%; /* Ensure the image takes full width of its container */
-  height: auto; /* Maintain aspect ratio */
+  width: 300px; /* Set a fixed width for the images */
+  height: 300px; /* Set a fixed height for the images */
+}
+
+/* Set a fixed size for the thumbnails */
+.thumbnail {
+  width: 50px; /* Set a fixed width for the thumbnails */
+  height: 50px; /* Set a fixed height for the thumbnails */
 }
 
 /* Add a pointer when hovering over the thumbnail images */
@@ -389,50 +394,7 @@ section {
   border-radius: 3px 0 0 3px;
 }
 
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* Container for image text */
-.caption-container {
-  text-align: center;
-  background-color: #222;
-  padding: 2px 16px;
-  color: white;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Six columns side by side */
-.column {
-  float: left;
-  width: 16.66%;
-}
-
-/* Add a transparency effect for thumnbail images */
-.demo {
-  opacity: 0.6;
-}
-
-.active,
-.demo:hover {
-  opacity: 1;
-}
+/* On hover, add a black b
 
 
 .facilities {
