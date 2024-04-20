@@ -96,32 +96,48 @@
       </div>
    </section>
 
-   <!-- Gallery section -->
-<section id="gallery" class="gallery">
-	<h3>Gallery</h3>
-<div class="carousel-container">
-        <div class="carousel">
-            <div class="carousel-images">
-                <img src="garage1.JPG" alt="Image 1">
-                <img src="garage2.JPG" alt="Image 2">
-                <img src="inspection.JPG" alt="Image 3">
-                <img src="truck.jpg" alt="Image 4">
-                <img src="boat.jpg" alt="Image 5">
-                <!-- Add more images as needed -->
-            </div>
-            <button class="prev-button">Prev</button>
-            <button class="next-button">Next</button>
-        </div>
-        <div class="carousel-thumbnails">
-       <img src="garage1.JPG" alt="Image 1">
-                <img src="garage2.JPG" alt="Image 2">
-                <img src="inspection.JPG" alt="Image 3">
-                <img src="truck.jpg" alt="Image 4">
-                <img src="boat.jpg" alt="Image 5">
-            <!-- Add more thumbnails as needed -->
-        </div>
-    </div>
+
+<!-- gallery section starts  -->
+<section class="gallery" id="gallery">
+
+    <h1 class="heading"> our <span>gallery</span> </h1>
+    <div class="gallery-wrap">
+        <img src="back.png" id="backBtn">
+       <div class="gallery">
+           <div>
+               <span><img src="garage1.JPG"></span>
+               <span><img src="garage2.JPG"></span>
+               <span><img src="inspection.JPG"></span>
+          </div>
+     </div>
+    <img src="next.png" id=nextBtn">
+</div>
+    
+<script>
+    let scrollContainer = document.querySelector(".gallery");
+    let backBtn = document.getElementById("backBtn");
+    let nextBtn = document.getElementbyId("nextBtn");
+
+    scrollContainer.addEventListener("wheel", (evt) => {
+        evt.preventDefault();
+        scrollContainer.scrollLeft += evt.deltaY;
+        scrollContainer.style.scrollBehavior = "auto";
+    });
+
+    nextBtn.addEventListener("click", ()=>{
+        scrollContainer.style.scrollBehavior = "smooth";
+        scrollContainer.scrollLeft += 900;
+    });
+
+    backBtn.addEventListener("click", ()=>{
+        scrollContainer.style.scrollBehavior = "smooth";
+        scrollContainer.scrollLeft += 900;
+    });
+    
+</script>
 </section>
+
+<!-- gallery section ends -->
    
 	
 <!-- contact section starts  -->
