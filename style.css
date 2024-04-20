@@ -333,9 +333,9 @@ section {
 }
 
 /* Set size for the slides */
-.mySlides {
+.mySlides img {
   width: 500px; /* Set a fixed width for the slides */
-  height: 400px; /* Set a fixed height for the slides */
+  height: 300px; /* Set a fixed height for the slides */
 }
 
 /* Set size for the thumbnails */
