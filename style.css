@@ -348,29 +348,27 @@ section {
   -o-object-fit: cover;
      object-fit: cover;
 }
-/* Center the container horizontally */
+/* Position the image container (needed to position the left and right arrows) */
 .container {
   position: relative;
   margin: 0 auto; /* Center the container horizontally */
 }
 
-/* Hide the images by default */
+/* Set size for the slides */
 .mySlides {
-  display: none;
-  max-width: 500px; /* Set a maximum width for the images */
-  height: 500px; /* Maintain aspect ratio */
-  object-fit: cover; /* Ensure the image covers the specified dimensions */
+  width: 500px; /* Set a fixed width for the slides */
+  height: 500px; /* Set a fixed height for the slides */
 }
 
-/* Set a fixed size for the thumbnails */
-.thumbnail {
+/* Set size for the thumbnails */
+.column img {
   width: 50px; /* Set a fixed width for the thumbnails */
   height: 50px; /* Set a fixed height for the thumbnails */
   object-fit: cover; /* Ensure the image covers the specified dimensions */
 }
 
 /* Center the thumbnails */
-.thumbnail-container {
+.row {
   display: flex;
   justify-content: center;
 }
@@ -447,8 +445,6 @@ section {
 .demo:hover {
   opacity: 1;
 }
-
-
 
 .facilities {
   background: #f5f5f5;
