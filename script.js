@@ -16,3 +16,12 @@ window.onscroll = () =>{
       document.querySelector('.header .navbar').classList.remove('active');
    }
 }
+const carouselImages = document.querySelector('.carousel-images');
+const thumbnails = document.querySelectorAll('.carousel-thumbnails img');
+
+thumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener('click', () => {
+        const index = Array.from(thumbnails).indexOf(thumbnail);
+        carouselImages.style.transform = `translateX(-${index * 33.33}%)`;
+    });
+});
