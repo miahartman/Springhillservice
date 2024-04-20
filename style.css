@@ -292,13 +292,14 @@ section {
 .container {
   position: relative;
   margin: 0 auto; /* Center the container horizontally */
-  max-width: 500px; /* Set a maximum width for the container */
+  max-width: 400px; /* Set a maximum width for the container */
 }
 
 /* Set size for the slides */
 .mySlides img {
-  width: 300px; /* Set a fixed width for the slides */
-  height: 300px; /* Set a fixed height for the slides */
+  width: 400px; /* Set a fixed width for the slides */
+  height: 400px; /* Set a fixed height for the slides */
+  object-fit: cover; /* Ensure the image covers the specified dimensions */
 }
 
 /* Set size for the thumbnails */
