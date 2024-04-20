@@ -6,131 +6,51 @@ menu.onclick = () =>{
    navbarLinks.classList.toggle('active');
 }
 
-window.onscroll = () =>{
-   menu.classList.remove('fa-times');
-   navbarLinks.classList.remove('active');
+document.addEventListener("DOMContentLoaded", function () {
+    const gallery = document.querySelector('.gallery');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const numOfItems = galleryItems.length;
+    const itemWidth = 100 / numOfItems; // Calculate item width dynamically
+    let currentIndex = 0;
 
-   if(window.scrollY > 60){
-      document.querySelector('.header .navbar').classList.add('active');
-   }else{
-      document.querySelector('.header .navbar').classList.remove('active');
-   }
-}
-var gallery = document.querySelector('.gallery');
-var galleryItems = document.querySelectorAll('.gallery-item');
-var numOfItems = gallery.children.length;
-var itemWidth = 23; // percent: as set in css
+    const leftBtn = document.querySelector('.move-btn.left');
+    const rightBtn = document.querySelector('.move-btn.right');
 
-var featured = document.querySelector('.featured-item');
+    leftBtn.addEventListener('click', movePrev);
+    rightBtn.addEventListener('click', moveNext);
 
-var leftBtn = document.querySelector('.move-btn.left');
-var rightBtn = document.querySelector('.move-btn.right');
-var leftInterval;
-var rightInterval;
+    function moveNext() {
+        currentIndex = (currentIndex + 1) % numOfItems;
+        updateGallery();
+    }
 
-var scrollRate = 0.2;
-var left;
+    function movePrev() {
+        currentIndex = (currentIndex - 1 + numOfItems) % numOfItems;
+        updateGallery();
+    }
 
-function selectItem(e) {
-	if (e.target.classList.contains('active')) return;
-	
-	featured.style.backgroundImage = e.target.style.backgroundImage;
-	
-	for (var i = 0; i < galleryItems.length; i++) {
-		if (galleryItems[i].classList.contains('active'))
-			galleryItems[i].classList.remove('active');
-	}
-	
-	e.target.classList.add('active');
-}
+    function updateGallery() {
+        const newPosition = -currentIndex * itemWidth;
+        gallery.style.transform = `translateX(${newPosition}%)`;
 
-function galleryWrapLeft() {
-	var first = gallery.children[0];
-	gallery.removeChild(first);
-	gallery.style.left = -itemWidth + '%';
-	gallery.appendChild(first);
-	gallery.style.left = '0%';
-}
+        // Update featured item
+        const featuredItem = document.querySelector('.featured-item');
+        featuredItem.style.backgroundImage = getBackgroundImage(currentIndex);
 
-function galleryWrapRight() {
-	var last = gallery.children[gallery.children.length - 1];
-	gallery.removeChild(last);
-	gallery.insertBefore(last, gallery.children[0]);
-	gallery.style.left = '-23%';
-}
+        // Update active class
+        galleryItems.forEach(item => item.classList.remove('active'));
+        galleryItems[currentIndex].classList.add('active');
+    }
 
-function moveLeft() {
-	left = left || 0;
-
-	leftInterval = setInterval(function() {
-		gallery.style.left = left + '%';
-
-		if (left > -itemWidth) {
-			left -= scrollRate;
-		} else {
-			left = 0;
-			galleryWrapLeft();
-		}
-	}, 1);
-}
-
-function moveRight() {
-	//Make sure there is element to the leftd
-	if (left > -itemWidth && left < 0) {
-		left = left  - itemWidth;
-		
-		var last = gallery.children[gallery.children.length - 1];
-		gallery.removeChild(last);
-		gallery.style.left = left + '%';
-		gallery.insertBefore(last, gallery.children[0]);	
-	}
-	
-	left = left || 0;
-
-	leftInterval = setInterval(function() {
-		gallery.style.left = left + '%';
-
-		if (left < 0) {
-			left += scrollRate;
-		} else {
-			left = -itemWidth;
-			galleryWrapRight();
-		}
-	}, 1);
-}
-
-function stopMovement() {
-	clearInterval(leftInterval);
-	clearInterval(rightInterval);
-}
-
-leftBtn.addEventListener('mouseenter', moveLeft);
-leftBtn.addEventListener('mouseleave', stopMovement);
-rightBtn.addEventListener('mouseenter', moveRight);
-rightBtn.addEventListener('mouseleave', stopMovement);
-
-
-//Start this baby up
-(function init() {
-	var images = [
-		'garage1.JPG',
-		'garage2.JPG',
-		'inspection.JPG',
-		'truck.jpg',
-		'boat.jpg',
-		'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/guy.jpg',
-		'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/landscape.jpg',
-		'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/lips.jpg',
-		'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/night.jpg',
-		'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/table.jpg'
-	];
-	
-	//Set Initial Featured Image
-	featured.style.backgroundImage = 'url(' + images[0] + ')';
-	
-	//Set Images for Gallery and Add Event Listeners
-	for (var i = 0; i < galleryItems.length; i++) {
-		galleryItems[i].style.backgroundImage = 'url(' + images[i] + ')';
-		galleryItems[i].addEventListener('click', selectItem);
-	}
-})();
+    function getBackgroundImage(index) {
+        switch (index) {
+            case 0: return "url('garage1.JPG')";
+            case 1: return "url('garage2.JPG')";
+            case 2: return "url('inspection.JPG')";
+            case 3: return "url('truck.jpg')";
+            case 4: return "url('boat.jpg')";
+            // Add more cases for additional images
+            default: return "url('default.jpg')"; // Default image or handle other cases
+        }
+    }
+});
