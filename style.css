@@ -348,9 +348,10 @@ section {
   -o-object-fit: cover;
      object-fit: cover;
 }
-/* Position the image container (needed to position the left and right arrows) */
+/* Center the container horizontally */
 .container {
   position: relative;
+  margin: 0 auto; /* Center the container horizontally */
 }
 
 /* Hide the images by default */
