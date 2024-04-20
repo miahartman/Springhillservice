@@ -115,7 +115,7 @@ rightBtn.addEventListener('mouseleave', stopMovement);
 	var images = [
 		'garage1.JPG',
 		'garage2.JPG',
-		'inspection.jpg',
+		'inspection.JPG',
 		'truck.jpg',
 		'boat.jpg',
 		'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/guy.jpg',
