@@ -352,9 +352,9 @@ section {
     margin: 10% auto;
 }
 #backBtn, #nextBtn{
-    width 50px;
+    width 5px;
     cursor: pointer;
-    margin: 40px;
+    margin: 4px;
 }
 .gallery div img:hover{
     cursor: pointer;
