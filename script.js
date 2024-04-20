@@ -16,30 +16,32 @@ window.onscroll = () =>{
       document.querySelector('.header .navbar').classList.remove('active');
    }
 }
-const galleryItems = document.querySelectorAll('.gallery-item');
-const featuredItem = document.querySelector('.featured-item');
-const leftBtn = document.querySelector('.move-btn.left');
-const rightBtn = document.querySelector('.move-btn.right');
-
+const carouselImages = document.querySelector('.carousel-images');
+const prevButton = document.querySelector('.prev-button');
+const nextButton = document.querySelector('.next-button');
+const thumbnails = document.querySelectorAll('.carousel-thumbnails img');
 let currentIndex = 0;
 
-leftBtn.addEventListener('click', () => {
-   if (currentIndex > 0) {
-      currentIndex--;
-      updateGallery();
-   }
-});
-
-rightBtn.addEventListener('click', () => {
-   if (currentIndex < galleryItems.length - 1) {
-      currentIndex++;
-      updateGallery();
-   }
-});
-
-function updateGallery() {
-   const selectedItem = galleryItems[currentIndex];
-   const imgSrc = selectedItem.querySelector('img').src;
-   featuredItem.innerHTML = `<img src="${imgSrc}" alt="Featured Image">`;
+// Function to update carousel display based on currentIndex
+function updateCarousel() {
+    carouselImages.style.transform = `translateX(-${currentIndex * 33.33}%)`;
 }
-      
+
+// Add click event listeners to prev and next buttons
+prevButton.addEventListener('click', () => {
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : thumbnails.length - 3;
+    updateCarousel();
+});
+
+nextButton.addEventListener('click', () => {
+    currentIndex = currentIndex < thumbnails.length - 3 ? currentIndex + 1 : 0;
+    updateCarousel();
+});
+
+// Add click event listeners to thumbnails
+thumbnails.forEach((thumbnail, index) => {
+    thumbnail.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+    });
+});
