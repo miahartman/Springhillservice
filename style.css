@@ -348,7 +348,6 @@ section {
   -o-object-fit: cover;
      object-fit: cover;
 }
-
 .carousel-container {
     max-width: 800px;
     margin: 0 auto;
@@ -365,9 +364,15 @@ section {
 }
 
 .carousel-images img {
-    width: 33.33%;
+    width: 200px; /* Set the width of the images */
+    height: 200px; /* Set the height of the images */
     object-fit: cover; /* Ensures images maintain aspect ratio without stretching */
+    margin-right: 10px; /* Add spacing between images */
     transition: transform 0.3s ease; /* Add transition for hover effect */
+}
+
+.carousel-images img:last-child {
+    margin-right: 0; /* Remove margin from last image to avoid extra space */
 }
 
 .carousel-images img:hover {
@@ -381,7 +386,8 @@ section {
 }
 
 .carousel-thumbnails img {
-    width: 80px; /* Adjust thumbnail size as needed */
+    width: 30px; /* Adjust thumbnail size as needed */
+    height: 30px; /* Set the height of the thumbnails */
     margin: 0 5px;
     cursor: pointer;
     object-fit: cover; /* Ensures thumbnails maintain aspect ratio */
