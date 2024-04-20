@@ -6,11 +6,19 @@ menu.onclick = () =>{
    navbarLinks.classList.toggle('active');
 }
 
+window.onscroll = () =>{
+   menu.classList.remove('fa-times');
+   navbarLinks.classList.remove('active');
+
+   if(window.scrollY > 60){
+      document.querySelector('.header .navbar').classList.add('active');
+   }else{
+      document.querySelector('.header .navbar').classList.remove('active');
+   }
+}
 document.addEventListener("DOMContentLoaded", function () {
-    const gallery = document.querySelector('.gallery');
     const galleryItems = document.querySelectorAll('.gallery-item');
     const numOfItems = galleryItems.length;
-    const itemWidth = 100 / numOfItems; // Calculate item width dynamically
     let currentIndex = 0;
 
     const leftBtn = document.querySelector('.move-btn.left');
@@ -30,9 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function updateGallery() {
-        const newPosition = -currentIndex * itemWidth;
-        gallery.style.transform = `translateX(${newPosition}%)`;
-
         // Update featured item
         const featuredItem = document.querySelector('.featured-item');
         featuredItem.style.backgroundImage = getBackgroundImage(currentIndex);
