@@ -87,7 +87,7 @@ if(isset($_POST['submit']))
 		$mail = Mail::factory("mail");
 		$mail->send($to, $headers, $body);
 		//redirect to 'thank-you page
-		header('Location: thank-you.html');
+		header('Location: ../');
 	}
 }
 ///////////////////////////Functions/////////////////
