@@ -299,9 +299,8 @@ section {
 .mySlides img {
   width: 400px; /* Set a fixed width for the slides */
   height: 400px; /* Set a fixed height for the slides */
-  object-fit: none; /* Do not resize the image */
+  object-fit: cover; /* Do not resize the image */
   object-position: center; /* Center the image */
-  overflow: hidden; /* Hide any overflow */
 }
 
 /* Set size for the thumbnails */
