@@ -365,7 +365,7 @@ section {
 .gallery div img{
     width: 100%;
 }
-.gallery: :-webkit-scrollbar{
+.gallery::-webkit-scrollbar{
     display: none;
 }
 .gallery-wrap{
@@ -375,7 +375,7 @@ section {
     margin: 10% auto;
 }
 #backBtn, #nextBtn{
-    width 5px;
+    width: 5px;
     cursor: pointer;
     margin: 4px;
 }
