@@ -358,12 +358,14 @@ section {
   display: none;
   max-width: 500px; /* Set a maximum width for the images */
   height: 500px; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure the image covers the specified dimensions */
 }
 
 /* Set a fixed size for the thumbnails */
 .thumbnail {
   width: 50px; /* Set a fixed width for the thumbnails */
   height: 50px; /* Set a fixed height for the thumbnails */
+  object-fit: cover; /* Ensure the image covers the specified dimensions */
 }
 
 /* Center the thumbnails */
