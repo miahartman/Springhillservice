@@ -342,7 +342,7 @@ section {
 .gallery div img{
     width: 100%;
 }
-.gallery: :-webkit-scrollbar{
+.gallery: -webkit-scrollbar{
     display: none;
 }
 .gallery-wrap{
