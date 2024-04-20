@@ -45,18 +45,4 @@ thumbnails.forEach((thumbnail, index) => {
         updateCarousel();
     });
 });
-function openLightbox(index) {
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = document.getElementById('lightbox-image');
-    const imageSrc = document.querySelectorAll('.carousel-images img')[index].src;
 
-    lightboxImage.src = imageSrc;
-    lightbox.classList.remove('hidden');
-    document.body.style.overflow = 'hidden'; // Disable scrolling when lightbox is open
-}
-
-function closeLightbox() {
-    const lightbox = document.getElementById('lightbox');
-    lightbox.classList.add('hidden');
-    document.body.style.overflow = ''; // Enable scrolling when lightbox is closed
-}
