@@ -349,7 +349,16 @@ section {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.scroll-container {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
+}
 
+div.scroll-container img {
+  padding: 10px;
+}
 .facilities {
   background: #f5f5f5;
 }
