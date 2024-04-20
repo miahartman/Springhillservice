@@ -16,44 +16,32 @@ window.onscroll = () =>{
       document.querySelector('.header .navbar').classList.remove('active');
    }
 }
-document.addEventListener("DOMContentLoaded", function () {
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    const numOfItems = galleryItems.length;
-    let currentIndex = 0;
+const galleryItems = document.querySelectorAll('.gallery-item');
+const featuredItem = document.querySelector('.featured-item');
+const leftBtn = document.querySelector('.move-btn.left');
+const rightBtn = document.querySelector('.move-btn.right');
 
-    const leftBtn = document.querySelector('.move-btn.left');
-    const rightBtn = document.querySelector('.move-btn.right');
+let currentIndex = 0;
 
-    leftBtn.addEventListener('click', movePrev);
-    rightBtn.addEventListener('click', moveNext);
+leftBtn.addEventListener('click', () => {
+   if (currentIndex > 0) {
+      currentIndex--;
+      updateGallery();
+   }
+});
 
-    function moveNext() {
-        currentIndex = (currentIndex + 1) % numOfItems;
-        updateGallery();
-    }
+rightBtn.addEventListener('click', () => {
+   if (currentIndex < galleryItems.length - 1) {
+      currentIndex++;
+      updateGallery();
+   }
+});
 
-    function movePrev() {
-        currentIndex = (currentIndex - 1 + numOfItems) % numOfItems;
-        updateGallery();
-    }
-
-    function updateGallery() {
-        // Update featured item
-        const featuredItem = document.querySelector('.featured-item');
-        featuredItem.style.backgroundImage = getBackgroundImage(currentIndex);
-
-        // Update active class
-        galleryItems.forEach(item => item.classList.remove('active'));
-        galleryItems[currentIndex].classList.add('active');
-    }
-
-    function getBackgroundImage(index) {
-        switch (index) {
-            case 0: return "url('garage1.JPG')";
-            case 1: return "url('garage2.JPG')";
-            case 2: return "url('inspection.JPG')";
-            case 3: return "url('truck.jpg')";
-            case 4: return "url('boat.jpg')";
+function updateGallery() {
+   const selectedItem = galleryItems[currentIndex];
+   const imgSrc = selectedItem.querySelector('img').src;
+   featuredItem.innerHTML = `<img src="${imgSrc}" alt="Featured Image">`;
+}
             // Add more cases for additional images
             default: return "url('default.jpg')"; // Default image or handle other cases
         }
