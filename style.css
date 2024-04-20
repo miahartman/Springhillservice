@@ -324,30 +324,7 @@ section {
   line-height: 2;
   color: #777;
 }
-.gallery .gallery-container {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(30rem, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-  gap: 2rem;
-}
 
-.gallery .gallery-container .box {
-  height: 25rem;
-  overflow: hidden;
-}
-
-.gallery .gallery-container .box:hover img {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-}
-
-.gallery .gallery-container .box img {
-  height: 100%;
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
 /* Position the image container (needed to position the left and right arrows) */
 .container {
   position: relative;
@@ -358,7 +335,7 @@ section {
 /* Set size for the slides */
 .mySlides {
   width: 500px; /* Set a fixed width for the slides */
-  height: 500px; /* Set a fixed height for the slides */
+  height: 400px; /* Set a fixed height for the slides */
 }
 
 /* Set size for the thumbnails */
