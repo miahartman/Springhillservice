@@ -16,32 +16,3 @@ window.onscroll = () =>{
       document.querySelector('.header .navbar').classList.remove('active');
    }
 }
-const carouselImages = document.querySelector('.carousel-images');
-const prevButton = document.querySelector('.prev-button');
-const nextButton = document.querySelector('.next-button');
-const thumbnails = document.querySelectorAll('.carousel-thumbnails img');
-let currentIndex = 0;
-
-// Function to update carousel display based on currentIndex
-function updateCarousel() {
-    carouselImages.style.transform = `translateX(-${currentIndex * 33.33}%)`;
-}
-
-// Add click event listeners to prev and next buttons
-prevButton.addEventListener('click', () => {
-    currentIndex = currentIndex > 0 ? currentIndex - 1 : thumbnails.length - 3;
-    updateCarousel();
-});
-
-nextButton.addEventListener('click', () => {
-    currentIndex = currentIndex < thumbnails.length - 3 ? currentIndex + 1 : 0;
-    updateCarousel();
-});
-
-// Add click event listeners to thumbnails
-thumbnails.forEach((thumbnail, index) => {
-    thumbnail.addEventListener('click', () => {
-        currentIndex = index;
-        updateCarousel();
-    });
-});
