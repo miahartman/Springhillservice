@@ -324,48 +324,55 @@ section {
   line-height: 2;
   color: #777;
 }
-.gallery {
-   position: relative;
-   max-width: 700px;
-   margin: 0 auto;
+.carousel-container {
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
-.featured-item {
-   max-width: 100%;
-   overflow: hidden;
-   transition: max-width 0.5s ease;
+.carousel {
+    position: relative;
 }
 
-.gallery-items {
-   display: flex;
-   overflow-x: auto;
-   scroll-snap-type: x mandatory;
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
 }
 
-.gallery-item {
-   flex: 0 0 auto;
-   scroll-snap-align: start;
+.carousel-images img {
+    width: 200px; /* Set the width of the images */
+    height: 200px; /* Set the height of the images */
+    object-fit: cover; /* Ensures images maintain aspect ratio without stretching */
+    margin-right: 10px; /* Add spacing between images */
+    transition: transform 0.3s ease; /* Add transition for hover effect */
 }
 
-.controls {
-   margin-top: 10px;
-   text-align: center;
+.carousel-images img:last-child {
+    margin-right: 0; /* Remove margin from last image to avoid extra space */
 }
 
-.move-btn {
-   background: none;
-   border: none;
-   font-size: 24px;
-   cursor: pointer;
+.carousel-images img:hover {
+    transform: scale(1.1); /* Make image slightly larger on hover */
 }
 
-.left {
-   margin-right: 10px;
+.carousel-thumbnails {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
 
-.right {
-   margin-left: 10px;
+.carousel-thumbnails img {
+    width: 30px; /* Adjust thumbnail size as needed */
+    height: 30px; /* Set the height of the thumbnails */
+    margin: 0 5px;
+    cursor: pointer;
+    object-fit: cover; /* Ensures thumbnails maintain aspect ratio */
 }
+
+.carousel-thumbnails img:hover {
+    opacity: 0.7;
+}
+
 
 .facilities {
   background: #f5f5f5;
