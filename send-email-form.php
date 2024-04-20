@@ -6,9 +6,9 @@ include_once('Mail_Mime/mime.php');
 
 //Settings 
 $max_allowed_file_size = 100; // size in KB 
-$allowed_extensions = array("jpg", "jpeg", "gif", "bmp");
+$allowed_extensions = array("jpg", "jpeg", "gif", "bmp", "png", "pdf", ".mov");
 $upload_folder = './uploads/'; //<-- this folder must be writeable by the script
-$your_email = 'tom@amazing-designs.com';//<<--  update this to your email address
+$your_email = 'miahartman77@gmail.com';//<<--  update this to your email address
 
 $errors ='';
 
@@ -147,6 +147,10 @@ action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" enctype="multipart/fo
 <p>
 <label for='email'>Email: </label><br>
 <input type="text" name="email" >
+</p>
+<p>
+<label for='number'>Number: </label><br>
+<input type="number" name="number" >
 </p>
 <p>
 <label for='message'>Message:</label> <br>
