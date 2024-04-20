@@ -42,8 +42,4 @@ function updateGallery() {
    const imgSrc = selectedItem.querySelector('img').src;
    featuredItem.innerHTML = `<img src="${imgSrc}" alt="Featured Image">`;
 }
-            // Add more cases for additional images
-            default: return "url('default.jpg')"; // Default image or handle other cases
-        }
-    }
-});
+      
