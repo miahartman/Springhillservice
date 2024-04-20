@@ -366,6 +366,12 @@ section {
   height: 50px; /* Set a fixed height for the thumbnails */
 }
 
+/* Center the thumbnails */
+.thumbnail-container {
+  display: flex;
+  justify-content: center;
+}
+
 /* Add a pointer when hovering over the thumbnail images */
 .cursor {
   cursor: pointer;
@@ -438,6 +444,7 @@ section {
 .demo:hover {
   opacity: 1;
 }
+
 
 
 .facilities {
