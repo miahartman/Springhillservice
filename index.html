@@ -185,11 +185,9 @@
    <h1 class="heading"> <span>Contact</span> Us </h1>
 
    <div class="row">
-
-      <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3034.4738505491246!2d-79.60387012472869!3d40.48690365136653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8834c7811e3f7b2f%3A0x983bea1189c62d4b!2s1177%20Spring%20Hill%20Rd%2C%20Murrysville%2C%20PA%2015668!5e0!3m2!1sen!2sus!4v1713403115454!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
-
     
-        <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+        <form method="POST" name= "email_form_with_php"
+            action="php-form-action.php" enctype="multipart/form-data">
          <div class="inputBox">
          <h2>Get In Touch</h2>
          <div class="inputBox">
@@ -199,10 +197,10 @@
          </div>
          <div class="inputBox">
             <input type="number" name = "number" placeholder="Phone">
-             <input type="file" name="photo/video" placeholder="Photo/Video">
+            <input type="file" name="uploaded_file" placeholder="Photo/Video">
         </div>
          <textarea name="message" placeholder="Your Message" id="" cols="30" rows="10"></textarea>
-         <input type="submit" value="Send Message" class="btn">
+         <input type="submit" value="Submit" class="btn">
       </form>
 
    </div>
