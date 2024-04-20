@@ -98,43 +98,21 @@
 
 
 <!-- gallery section starts  -->
+
 <section class="gallery" id="gallery">
 
-    <h1 class="heading"> our <span>gallery</span> </h1>
-    <div class="gallery-wrap">
-        <img src="back.png" id="backBtn">
-       <div class="gallery">
-           <div>
-               <span><img src="garage1.JPG"></span>
-               <span><img src="garage2.JPG"></span>
-               <span><img src="inspection.JPG"></span>
-          </div>
-     </div>
-    <img src="next.png" id=nextBtn">
-</div>
-    
-<script>
-    let scrollContainer = document.querySelector(".gallery");
-    let backBtn = document.getElementById("backBtn");
-    let nextBtn = document.getElementbyId("nextBtn");
+   <h1 class="heading"> our <span>gallery</span> </h1>
 
-    scrollContainer.addEventListener("wheel", (evt) => {
-        evt.preventDefault();
-        scrollContainer.scrollLeft += evt.deltaY;
-        scrollContainer.style.scrollBehavior = "auto";
-    });
+   <div class="gallery-container">
 
-    nextBtn.addEventListener("click", ()=>{
-        scrollContainer.style.scrollBehavior = "smooth";
-        scrollContainer.scrollLeft += 900;
-    });
+      <a class="box" href="garage1.JPG"><img src="garage1.JPG" alt=""></a>
+      <a class="box" href="garage2.JPG"><img src="garage2.JPG" alt=""></a>
+      <a class="box" href="inspection.JPG"><img src="inspection.JPG" alt=""></a>
+      <a class="box" href="truck.jpg"><img src="truck.jpg" alt=""></a>
+      <a class="box" href="boat.jpg"><img src="boat.jpg" alt=""></a>
 
-    backBtn.addEventListener("click", ()=>{
-        scrollContainer.style.scrollBehavior = "smooth";
-        scrollContainer.scrollLeft += 900;
-    });
-    
-</script>
+   </div>
+
 </section>
 
 <!-- gallery section ends -->
