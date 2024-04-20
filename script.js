@@ -17,11 +17,31 @@ window.onscroll = () =>{
    }
 }
 const carouselImages = document.querySelector('.carousel-images');
+const prevButton = document.querySelector('.prev-button');
+const nextButton = document.querySelector('.next-button');
 const thumbnails = document.querySelectorAll('.carousel-thumbnails img');
+let currentIndex = 0;
 
-thumbnails.forEach(thumbnail => {
+// Function to update carousel display based on currentIndex
+function updateCarousel() {
+    carouselImages.style.transform = `translateX(-${currentIndex * 33.33}%)`;
+}
+
+// Add click event listeners to prev and next buttons
+prevButton.addEventListener('click', () => {
+    currentIndex = Math.max(currentIndex - 1, 0);
+    updateCarousel();
+});
+
+nextButton.addEventListener('click', () => {
+    currentIndex = Math.min(currentIndex + 1, thumbnails.length - 3);
+    updateCarousel();
+});
+
+// Add click event listeners to thumbnails
+thumbnails.forEach((thumbnail, index) => {
     thumbnail.addEventListener('click', () => {
-        const index = Array.from(thumbnails).indexOf(thumbnail);
-        carouselImages.style.transform = `translateX(-${index * 33.33}%)`;
+        currentIndex = index;
+        updateCarousel();
     });
 });
